@@ -1,5 +1,8 @@
 import "dotenv/config";
 import express from "express";
+import initDb from "./db/init.mjs";
+
+await initDb();
 
 const app = express();
 
