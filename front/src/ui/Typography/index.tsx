@@ -32,6 +32,7 @@ const TypographyBase = ({
     "text-blue-300": color === ENUM_COLORS.LIGHT_BLUE,
     "text-blue-700": color === ENUM_COLORS.DARK_BLUE,
     "text-gray-900": color === ENUM_COLORS.OFFBLACK,
+    "text-night": color === ENUM_COLORS.NIGHT,
   });
 
   switch (variant) {

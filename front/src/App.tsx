@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="bg-orange-200 min-h-screen font-sans">
+    <div className="bg-french-gray min-h-screen font-sans">
       <Header />
       <div className="p-12 h-full flex-1">
         <Route path="/" component={Home} />
