@@ -1,18 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const User = mongoose.model(
-  "User",
-  new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String,
-    roles: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Role",
-      },
-    ],
-  })
-);
+const userSchema = new mongoose.Schema({
+  name: String,
+  decks: [String],
+});
 
+const User = mongoose.model("User", userSchema);
 export default User;
