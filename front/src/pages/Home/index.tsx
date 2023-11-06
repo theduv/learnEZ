@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { HomeLinks } from "./HomeLinks.tsx";
-import useAuth from "../../hooks/useAuth.ts";
 import { WelcomeCard } from "./WelcomeCard/index.tsx";
+import { useAuth } from "../../hooks/useAuth.tsx";
 
 const HomeBase = () => {
   const { isAuthenticated } = useAuth();

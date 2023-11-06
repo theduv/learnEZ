@@ -12,6 +12,7 @@ enum ENUM_COLORS {
   OFFBLACK,
   OFFWHITE,
   NIGHT,
+  ACCENT,
 }
 
 export default ENUM_COLORS;

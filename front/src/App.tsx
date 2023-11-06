@@ -1,16 +1,36 @@
 import { Route } from "wouter";
 import { Home } from "./pages/Home";
-import { Header } from "./components/layout/Header";
+import { Navbar } from "./components/Navbar";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { Learn } from "./pages/Learn";
+import { Community } from "./pages/Community";
+import { MyDecks } from "./pages/My-Decks";
+import { AuthProvider } from "./hooks/useAuth";
 import "./App.css";
+import { EditDeck } from "./pages/EditDeck";
 
 function App() {
   return (
-    <div className="bg-french-gray min-h-screen font-sans">
-      <Header />
-      <div className="p-12 h-full flex-1">
-        <Route path="/" component={Home} />
-      </div>
-    </div>
+    <Auth0Provider
+      domain={import.meta.env.VITE_AUTH0_DOMAIN}
+      clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <AuthProvider>
+        <div className="min-h-screen font-sans h-screen flex">
+          <Navbar />
+          <div className="p-12 h-full flex-1 bg-offblack flex-grow">
+            <Route path="/" component={Home} />
+            <Route path="/learn" component={Learn} />
+            <Route path="/community" component={Community} />
+            <Route path="/my-decks" component={MyDecks} />
+            <Route path="/edit/deck/:id" component={EditDeck} />
+          </div>
+        </div>
+      </AuthProvider>
+    </Auth0Provider>
   );
 }
 

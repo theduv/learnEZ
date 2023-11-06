@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        caribbean: "#006D77",
-        "french-gray": "#A8AEC1",
-        "ash-gray": "#B5D2CB",
-        night: "#0D160B",
-        "raisin-black": "#3A2E39",
+        offwhite: "#FFFCF2",
+        offblack: "#252422",
+        accent: "#EB5E28",
+        "offblack-secondary": "#313639",
+        "light-gray": "#CCC5B9",
+        "dark-gray": "#403D39",
       },
     },
   },
-  plugins: [],
 };

@@ -7,7 +7,7 @@ export const linksList = [
   {
     id: 1,
     title: "My decks",
-    href: "/myDecks",
+    href: "/my-decks",
   },
   {
     id: 2,

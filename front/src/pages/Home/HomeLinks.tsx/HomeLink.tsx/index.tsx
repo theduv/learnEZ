@@ -10,7 +10,7 @@ const HomeLinkBase = ({ href, title }: HomeLinkProps) => {
   return (
     <Link
       href={href}
-      className="text-7xl hover:translate-x-12 hover:scale-110 duration-150 ease-out font-medium px-6 py-5 bg-gray-600 rounded-md text-gray-200 "
+      className="text-7xl rounded-md text-offwhite hover:text-accent transition duration-900 flex-shrink-0"
     >
       {title}
     </Link>
