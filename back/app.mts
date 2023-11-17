@@ -67,7 +67,14 @@ app.delete("/deleteDeck/:id", async (req, res) => {
 app.delete("/card/delete/:id", async (req, res) => {
   const { id } = req.params;
 
-  //TODO: remove from deck
+  const targetDecks = await Deck.find({ cards: new ObjectId(id) });
+  console.log(targetDecks);
+  for (let deck of targetDecks) {
+    const newCards = deck.cards.filter((card) => card.toString() !== id);
+    console.log(newCards.length);
+    deck.set({ cards: newCards });
+    await deck.save();
+  }
   await Card.findByIdAndDelete(id);
   res.status(204).send("Deleted");
 });
@@ -95,7 +102,6 @@ app.post("/card/create", async (req, res) => {
   const targetDeck = await Deck.findById(deckId);
   targetDeck?.cards.push(id);
   targetDeck?.save();
-  console.log(id);
   res.status(201).json(newCard);
 });
 
