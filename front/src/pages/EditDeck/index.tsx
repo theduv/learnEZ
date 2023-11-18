@@ -9,6 +9,8 @@ import axios from "axios";
 import Card from "../../types/card";
 import Deck from "../../types/deck";
 import ENUM_COLORS from "../../ui/Typography/colors.enum";
+import { toast } from "react-toastify";
+import displayError from "../../functions/displayError";
 
 const EditDeckBase = () => {
   const route = useRoute("/edit/deck/:id");
@@ -34,7 +36,7 @@ const EditDeckBase = () => {
       );
       setCards(res2.data);
     } catch (e) {
-      console.log(e); //TODO: toast
+      displayError(e, "Error: could not fetch cards.");
     }
   };
 

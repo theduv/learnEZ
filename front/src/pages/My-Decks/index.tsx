@@ -4,8 +4,9 @@ import { DecksList } from "./DecksList";
 import { Button } from "../../ui/Button/index.tsx";
 import { ModalCreateDeck } from "./ModalCreateDeck/index.tsx";
 import { TextInput } from "../../ui/TextInput/index.tsx";
-import axios from "axios";
 import Deck from "../../types/deck";
+import axios from "axios";
+import displayError from "../../functions/displayError.ts";
 
 const MyDecksBase = () => {
   const [userDecks, setUserDecks] = useState<Array<Deck>>([]);
@@ -26,7 +27,7 @@ const MyDecksBase = () => {
       );
       setUserDecks(res.data);
     } catch (e) {
-      console.log(e); // TODO: toast
+      displayError(e, "Error: could not fetch");
     }
   };
 

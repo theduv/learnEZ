@@ -20,7 +20,7 @@ const TextInputBase = ({
   };
 
   return (
-    <label className="flex items-center space-x-4 justify-between">
+    <label className="flex items-center space-x-4">
       {description && (
         <Typography variant="h3" color={ENUM_COLORS.OFFWHITE}>
           {description}

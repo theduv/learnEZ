@@ -3,7 +3,10 @@ import { Modal } from "../../../ui/Modal";
 import { TextInput } from "../../../ui/TextInput";
 import { Button } from "../../../ui/Button";
 import axios from "axios";
+import displayError from "../../../functions/displayError";
 
+import MDEditor from "@uiw/react-md-editor";
+import { toast } from "react-toastify";
 interface ModalCreateCardProps {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
@@ -27,26 +30,27 @@ const ModalCreateCardBase = ({
       });
       setFrontValue("");
       setBackValue("");
+      toast.success("Card successfully created !");
       setOpen(false);
     } catch (e) {
-      console.log(e); //TODO: toast
+      displayError(e, "Error: could not create card.");
     }
   };
 
   return (
     <Modal open={open} setOpen={setOpen} title="Create a new card">
-      <div className="flex flex-col space-y-4 justify-center">
-        <TextInput
-          placeholder="To be"
-          description="Front"
+      <div className="flex flex-col space-y-2 justify-center">
+        <MDEditor
+          height={300}
+          style={{ width: 800 }}
           value={frontValue}
-          setValue={setFrontValue}
+          onChange={(e: any) => setFrontValue(e)}
         />
-        <TextInput
-          placeholder="Å være"
-          description="Back"
+        <MDEditor
+          height={300}
+          style={{ width: 800 }}
           value={backValue}
-          setValue={setBackValue}
+          onChange={(e: any) => setBackValue(e)}
         />
         <Button variant="primary" onClick={onClickSubmit}>
           Create card

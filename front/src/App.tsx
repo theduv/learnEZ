@@ -6,8 +6,11 @@ import { Learn } from "./pages/Learn";
 import { Community } from "./pages/Community";
 import { MyDecks } from "./pages/My-Decks";
 import { AuthProvider } from "./hooks/useAuth";
-import "./App.css";
 import { EditDeck } from "./pages/EditDeck";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "@mdxeditor/editor/style.css";
+import "./App.css";
 
 function App() {
   return (
@@ -27,6 +30,7 @@ function App() {
             <Route path="/community" component={Community} />
             <Route path="/my-decks" component={MyDecks} />
             <Route path="/edit/deck/:id" component={EditDeck} />
+            <ToastContainer theme="dark" />
           </div>
         </div>
       </AuthProvider>

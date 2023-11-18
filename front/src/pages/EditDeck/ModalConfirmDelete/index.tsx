@@ -4,6 +4,8 @@ import { Modal } from "../../../ui/Modal";
 import { Button } from "../../../ui/Button";
 import { Typography } from "../../../ui/Typography";
 import ENUM_COLORS from "../../../ui/Typography/colors.enum";
+import { toast } from "react-toastify";
+import displayError from "../../../functions/displayError";
 
 interface ModalConfirmDeleteProps {
   open: boolean;
@@ -23,7 +25,7 @@ const ModalConfirmDeleteBase = ({
       );
       setOpen(false);
     } catch (e) {
-      console.log(e); //TODO: toast
+      displayError(e, "Error: could not delete deck.");
     }
   };
 

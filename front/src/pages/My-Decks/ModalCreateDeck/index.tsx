@@ -2,8 +2,10 @@ import { memo, Dispatch, SetStateAction, useState } from "react";
 import { Modal } from "../../../ui/Modal";
 import { TextInput } from "../../../ui/TextInput";
 import { Button } from "../../../ui/Button";
-import axios from "axios";
 import { useAuth } from "../../../hooks/useAuth";
+import axios from "axios";
+import { toast } from "react-toastify";
+import displayError from "../../../functions/displayError";
 
 interface ModalCreateDeckProps {
   open: boolean;
@@ -21,10 +23,11 @@ const ModalCreateDeckBase = ({ open, setOpen }: ModalCreateDeckProps) => {
         title: titleValue,
         userId: userData._id,
       });
+      toast.success("Deck successfully created !");
       setTitleValue("");
       setOpen(false);
     } catch (e) {
-      console.log(e); // TODO: toast
+      displayError(e, "Error: could not create deck.");
     }
   };
 

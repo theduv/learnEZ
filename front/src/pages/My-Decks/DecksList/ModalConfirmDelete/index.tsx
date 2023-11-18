@@ -4,6 +4,8 @@ import { Modal } from "../../../../ui/Modal";
 import { Typography } from "../../../../ui/Typography";
 import axios from "axios";
 import Deck from "../../../../types/deck";
+import { toast } from "react-toastify";
+import displayError from "../../../../functions/displayError";
 
 interface ModalConfirmDeleteProps {
   open: boolean;
@@ -32,7 +34,7 @@ const ModalConfirmDeleteBase = ({
       );
       setOpen(false);
     } catch (e) {
-      console.log(e); //TODO: toast
+      displayError(e, "Error: could not delete deck.");
     }
   };
 
